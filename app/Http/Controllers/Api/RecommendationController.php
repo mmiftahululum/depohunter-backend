@@ -55,6 +55,8 @@ class RecommendationController extends Controller
                     'type' => ucfirst($rate->product->bank->type), // Digital / Konvensional
                     'color' => $rate->product->bank->color_code,
                     'website' => $rate->product->bank->website_url, // Link Website
+                    'description' => $rate->product->bank->description,
+                    'code_saham' => $rate->product->bank->code_saham,
                 ],
                 'product' => [
                     'name' => $rate->product->name,

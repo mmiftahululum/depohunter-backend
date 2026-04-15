@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload; // Untuk upload logo
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle; // Untuk on/off (OJK/LPS)
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
@@ -46,6 +47,16 @@ class BankResource extends Resource
             ->image() // Validasi harus gambar
             ->directory('bank-logos') // Disimpan di storage/app/public/bank-logos
             ->label('Logo Bank'),
+
+        Textarea::make('description')
+            ->label('Deskripsi Bank')
+            ->rows(4)
+            ->nullable(),
+
+        TextInput::make('code_saham')
+            ->label('Kode Saham')
+            ->maxLength(10)
+            ->nullable(),
 
         Toggle::make('is_lps_insured')
             ->label('Dijamin LPS?')
