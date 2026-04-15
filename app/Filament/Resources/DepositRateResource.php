@@ -116,13 +116,6 @@ class DepositRateResource extends Resource
                 // Ambil nilai dari tabel GlobalSetting
                 $lpsLimit = GlobalSetting::where('key', $configKey)->value('value') ?? 4.25;
 
-                // 4. Bandingkan Bunga Inputan vs Batas LPS
-                // Jika Bunga > Batas, maka TIDAK DIJAMIN (False)
-                if ($state > $lpsLimit) {
-                    $set('is_lps_insured', false);
-                } else {
-                    $set('is_lps_insured', true);
-                }
             }),
 
             TextInput::make('tax_percent')
@@ -131,12 +124,6 @@ class DepositRateResource extends Resource
                 ->suffix('%')
                 ->label('Pajak Bunga'),
 
-                Forms\Components\Toggle::make('is_lps_insured')
-                ->label('Dijamin LPS?')
-                ->helperText('Otomatis mati jika bunga > batas LPS, tapi bisa diubah manual.')
-                ->default(true)
-                ->onColor('success') // Hijau kalau aktif
-                ->offColor('danger'), // Merah kalau mati
         ]);
     }
 
@@ -153,8 +140,7 @@ class DepositRateResource extends Resource
             // 2. Nama Produk
             TextColumn::make('product.name')
                 ->label('Produk')
-                ->searchable()
-                ->limit(20), // Biar kolom tidak terlalu lebar
+                ->searchable(), // Biar kolom tidak terlalu lebar (LIMIT DIHAPUS)
 
             // 3. Tenor (Durasi)
             TextColumn::make('duration_months')

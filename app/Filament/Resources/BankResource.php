@@ -47,9 +47,7 @@ class BankResource extends Resource
             ->directory('bank-logos') // Disimpan di storage/app/public/bank-logos
             ->label('Logo Bank'),
 
-        Toggle::make('is_lps_insured')
-            ->label('Dijamin LPS?')
-            ->default(true),
+
             
         Toggle::make('is_ojk_verified')
             ->label('Terdaftar OJK?')
@@ -87,9 +85,7 @@ class BankResource extends Resource
                 ->boolean(),
 
             // 5. Status LPS
-            IconColumn::make('is_lps_insured')
-                ->label('LPS')
-                ->boolean(),
+
         ])
         ->filters([
             //
