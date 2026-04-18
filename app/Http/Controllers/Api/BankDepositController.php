@@ -205,6 +205,8 @@ class BankDepositController extends Controller
                     'website'     => $bank->website_url,
                     'description' => $bank->description,
                     'stock_code'  => $bank->stock_code,
+                    'code_saham'  => $bank->code_saham
+                    
                 ],
                 'total_products' => (string) $products->count(),
                 'products'       => $products,
