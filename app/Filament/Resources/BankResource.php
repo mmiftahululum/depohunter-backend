@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\BankResource\Pages;
 use App\Filament\Resources\BankResource\RelationManagers;
 use App\Models\Bank;
+use App\Filament\Resources\DepositProductResource;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -26,6 +27,8 @@ class BankResource extends Resource
     protected static ?string $model = Bank::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationGroup = \App\Filament\Constants\NavigationGroup::MASTER_DATA;
 
     public static function form(Form $form): Form
     {
@@ -104,6 +107,13 @@ class BankResource extends Resource
             //
         ])
         ->actions([
+            Tables\Actions\Action::make('Produk')
+                ->icon('heroicon-o-list-bullet')
+                ->url(fn (Bank $record): string => DepositProductResource::getUrl('index', [
+                    'tableFilters' => [
+                        'bank_id' => ['value' => $record->id]
+                    ]
+                ])),
             Tables\Actions\EditAction::make(),
         ])
         ->bulkActions([

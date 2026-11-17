@@ -140,6 +140,7 @@ class RecommendationController extends Controller
                 return [
                     'id' => (string) $rate->id,
                     'bank' => [
+                        'id' => (string) $rate->product->bank->id,
                         'name' => $rate->product->bank->name,
                         'logo' => $rate->product->bank->logo_url ? asset('storage/' . $rate->product->bank->logo_url) : null,
                         'type' => ucfirst($rate->product->bank->type),

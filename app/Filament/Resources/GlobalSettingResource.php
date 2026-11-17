@@ -25,6 +25,8 @@ class GlobalSettingResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = \App\Filament\Constants\NavigationGroup::MASTER_DATA;
+
     public static function form(Form $form): Form
     {
         return $form

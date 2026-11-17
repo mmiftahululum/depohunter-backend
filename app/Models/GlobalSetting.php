@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class GlobalSetting extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'key',
+        'label',
+        'value',
+    ];
 }

@@ -147,12 +147,12 @@ class BankDepositController extends Controller
     {
         // 1. Validasi Parameter Wajib
         $validated = $request->validate([
-            'bank_id' => 'required|integer|exists:banks,id',
+            'bank_id' => 'required|integer',
         ], [
             'bank_id.required' => 'Parameter bank_id wajib diisi.',
             'bank_id.integer'  => 'Parameter bank_id harus berupa angka.',
-            'bank_id.exists'   => 'Bank dengan ID tersebut tidak ditemukan.',
         ]);
+
 
         try {
             $bankId = $validated['bank_id'];

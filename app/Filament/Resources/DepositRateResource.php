@@ -32,6 +32,8 @@ class DepositRateResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = \App\Filament\Constants\NavigationGroup::MASTER_DATA;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -46,11 +48,14 @@ class DepositRateResource extends Resource
                 ->searchable()
                 ->preload()
                 ->columnSpanFull()
+                ->default(request()->query('bank_filter'))
                 // --- TAMBAHKAN BAGIAN INI ---
                 ->afterStateHydrated(function (Forms\Components\Select $component, ?DepositRate $record) {
                     // Logika: Jika sedang Edit (record ada), ambil bank_id dari produknya
                     if ($record && $record->product) {
                         $component->state($record->product->bank_id);
+                    } elseif (request()->query('bank_filter')) {
+                        $component->state(request()->query('bank_filter'));
                     }
                 }),
                 // ----------------------------
@@ -58,6 +63,7 @@ class DepositRateResource extends Resource
             // 2. INPUT ASLI: PILIH PRODUK (Otomatis terfilter)
                 Forms\Components\Select::make('deposit_product_id')
                 ->label('Pilih Produk Deposito')
+                ->default(request()->query('deposit_product_id'))
                 ->options(function (Get $get, ?DepositRate $record) { // Tambahkan $record di parameter
                     $bankId = $get('bank_filter');
 

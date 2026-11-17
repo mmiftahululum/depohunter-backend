@@ -26,6 +26,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->brandName('Admin Panel Deposito Hunter')
             ->login()
             ->colors([
                 'primary' => Color::Amber,

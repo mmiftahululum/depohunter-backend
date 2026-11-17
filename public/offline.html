@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mode Offline - BankRate ID</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .offline-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(6, 182, 212, 0.2));
+            border: 2px solid rgba(99, 102, 241, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .btn-retry {
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 28px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-retry:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5);
+            background: linear-gradient(135deg, #4338ca, #4f46e5);
+        }
+
+        .btn-retry:active {
+            transform: translateY(0);
+        }
+
+        .status-badge {
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .dot-offline {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ef4444;
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-card">
+        <div class="icon-circle">
+            📡
+        </div>
+        <h1>Anda Sedang Offline</h1>
+        <p>
+            Koneksi internet Anda saat ini terputus. Pastikan WiFi atau data seluler Anda aktif, lalu coba muat ulang halaman.
+        </p>
+
+        <button class="btn-retry" onclick="window.location.reload()">
+            🔄 Coba Muat Ulang
+        </button>
+
+        <div class="status-badge">
+            <span class="dot-offline"></span> Status: Tidak Terhubung ke Internet
+        </div>
+    </div>
+
+    <script>
+        // Otomatis muat ulang begitu internet kembali menyala
+        window.addEventListener('online', function() {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>

@@ -20,4 +20,9 @@ class DepositProduct extends Model
     {
         return $this->hasMany(DepositRate::class);
     }
+
+    public function depositRates()
+    {
+        return $this->hasMany(DepositRate::class);
+    }
 }

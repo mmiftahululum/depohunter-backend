@@ -1,0 +1,283 @@
+/* Custom AdminLTE Styling for Depo Hunter */
+:root {
+    --depo-primary: #4f46e5;
+    --depo-primary-dark: #4338ca;
+    --depo-accent: #06b6d4;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1e293b;
+    background-color: #f8fafc;
+}
+
+/* Brand Link */
+.brand-link {
+    background-color: #0f172a !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 14px 16px !important;
+}
+
+.brand-link .brand-image {
+    background: linear-gradient(135deg, #4f46e5, #06b6d4);
+    color: white;
+    padding: 6px 9px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+}
+
+.brand-text {
+    font-weight: 700 !important;
+    letter-spacing: -0.3px;
+    color: #ffffff !important;
+}
+
+/* Sidebar Custom */
+.main-sidebar {
+    background-color: #0f172a !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
+.sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%) !important;
+    color: #ffffff !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+}
+
+.nav-sidebar .nav-link {
+    border-radius: 8px;
+    margin: 2px 8px;
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    transition: all 0.2s ease;
+}
+
+.nav-sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+}
+
+.nav-header {
+    font-size: 0.72rem !important;
+    letter-spacing: 1px;
+    color: #64748b !important;
+    font-weight: 700 !important;
+    padding: 14px 16px 6px !important;
+}
+
+/* Cards & Content */
+.content-wrapper {
+    background-color: #f1f5f9 !important;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 10px 20px rgba(0, 0, 0, 0.02);
+    margin-bottom: 24px;
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 16px 20px;
+    font-weight: 600;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Small Boxes / Stat Cards */
+.small-box {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: none;
+}
+
+.small-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.small-box .inner {
+    padding: 22px 20px;
+}
+
+.small-box h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+}
+
+.small-box p {
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.small-box .icon {
+    top: 18px;
+    right: 18px;
+    font-size: 65px;
+    opacity: 0.22;
+}
+
+.small-box-footer {
+    background: rgba(0, 0, 0, 0.1) !important;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 6px 0;
+}
+
+/* Tables */
+.table-custom {
+    margin-bottom: 0;
+}
+
+.table-custom th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    border-top: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 12px 16px;
+    vertical-align: middle;
+}
+
+.table-custom td {
+    padding: 14px 16px;
+    vertical-align: middle;
+    color: #1e293b;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(99, 102, 241, 0.04);
+}
+
+/* Badges */
+.badge-pill-custom {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Bank Logos */
+.bank-logo-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    object-fit: cover;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bank-logo-thumb img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.bank-logo-placeholder {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+    color: #4338ca;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Forms */
+.form-group label {
+    font-weight: 600;
+    color: #334155;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.form-control, .custom-select {
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    padding: 10px 14px;
+    height: auto;
+    font-size: 0.92rem;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus, .custom-select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: #4f46e5;
+    border-color: #4f46e5;
+}
+
+.btn-primary:hover {
+    background: #4338ca;
+    border-color: #4338ca;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.btn-info {
+    background: #0284c7;
+    border-color: #0284c7;
+}
+
+.btn-success {
+    background: #10b981;
+    border-color: #10b981;
+}
+
+/* Filter Box */
+.filter-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    border: 1px solid #e2e8f0;
+}

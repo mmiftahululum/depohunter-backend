@@ -13,7 +13,19 @@ class ListDepositRates extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->url(function () {
+                    $productId = request()->input('tableFilters.deposit_product_id.value');
+                    if ($productId) {
+                        $product = \App\Models\DepositProduct::find($productId);
+                        $bankId = $product ? $product->bank_id : null;
+                        return DepositRateResource::getUrl('create', [
+                            'deposit_product_id' => $productId,
+                            'bank_filter' => $bankId
+                        ]);
+                    }
+                    return DepositRateResource::getUrl('create');
+                }),
         ];
     }
 }

@@ -12,7 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        // Run the top‑bank rate check once daily.
+        $schedule->command('bank:check-top-rate')->daily();
     }
 
     /**

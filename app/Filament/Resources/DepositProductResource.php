@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DepositProductResource\Pages;
 use App\Filament\Resources\DepositProductResource\RelationManagers;
 use App\Models\DepositProduct;
+use App\Filament\Resources\DepositRateResource;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -26,6 +27,8 @@ class DepositProductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = \App\Filament\Constants\NavigationGroup::MASTER_DATA;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -35,7 +38,8 @@ class DepositProductResource extends Resource
                 ->searchable()
                 ->preload()
                 ->required()
-                ->label('Nama Bank'),
+                ->label('Nama Bank')
+                ->default(request()->query('bank_id')),
 
             TextInput::make('name')
                 ->required()
@@ -97,6 +101,13 @@ class DepositProductResource extends Resource
                 ->label('Filter per Bank'),
         ])
         ->actions([
+            Tables\Actions\Action::make('List Rate')
+                ->icon('heroicon-o-currency-dollar')
+                ->url(fn (DepositProduct $record): string => DepositRateResource::getUrl('index', [
+                    'tableFilters' => [
+                        'deposit_product_id' => ['value' => $record->id]
+                    ]
+                ])),
             Tables\Actions\EditAction::make(),
         ])
         ->bulkActions([
